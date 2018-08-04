@@ -1,0 +1,114 @@
+/* DASHBOARD */
+
+/* SIDE NAV*/
+body {
+	margin: 0;
+    font-family:"Verdana", "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+ul.sidenav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 15%;
+    /* background-color: #0d3e4c;#455054 */
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    background: linear-gradient(#051f26,#9AA0BF);
+}
+
+ul.sidenav li a {
+    display: block;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: #fff;
+    padding: 8px 16px;
+    margin-top: 10px;
+    margin-left: 5px;
+    text-decoration: none;
+}
+ 
+ul.sidenav li a.active {
+    background-color: #fff;
+    color: #031e2c;
+}
+
+ul.sidenav li a:hover:not(.active) {
+    background-color: #031e2c;
+    color: white;
+}
+
+div.content {
+    margin-left: 15%;
+    padding: 1px 16px;
+}
+
+/*@media screen and (max-width: 900px) {
+    ul.sidenav {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    ul.sidenav li a {
+        float: left;
+        padding: 15px;
+    }
+    div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+    ul.sidenav li a {
+        text-align: center;
+        float: none;
+    }
+}*/
+
+/* TOP NAV */
+
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+    border-radius: 0px;
+    position: fixed; 
+    top: 0; 
+    left: 15%;
+    width: 85%;
+   	background-image: url("${pageContext.request.contextPath}/resources/img/1.jpg");
+   	background-size:cover;
+   
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: #fff;
+    text-align: center;
+    font-size: 18px;
+    letter-spacing: 2px;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background: #031e2c;
+    color: white;
+}
+
+.main {
+    margin-top: 60px; /* Add a top margin to avoid content overlay */
+}
+.header-dash{
+	text-align: center;
+	font-weight: bold;
+	font-size: 20px;
+	margin-top: 0px;
+}
+.header-list{
+	text-align: center;
+	font-weight: bold;
+	font-size: 40px;
+	letter-spacing: 2px;
+	margin-top: 70px;
+	margin-bottom: 30px;
+}

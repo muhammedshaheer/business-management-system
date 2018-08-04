@@ -1,0 +1,92 @@
+/* LOGIN PAGE */
+
+body {
+    font-family:"Verdana", "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+* {
+  	box-sizing: border-box;
+}
+a:hover{
+	cursor: pointer;
+	text-decoration: none !important;
+	color: black;
+}
+.bg-img {
+  /* The image used */
+  	background-image: url("${pageContext.request.contextPath}/resources/img/bg.jpg");
+
+  /* Control the height of the image */
+  	min-height: 380px;
+
+  /* Center and scale the image nicely */
+  	background-position: center;
+	background-repeat: no-repeat;
+  	background-size: cover;
+}
+.form-css{
+	width: 500px;
+	/* height: 400px; */
+	margin:auto;
+	margin-top:130px;
+	background: #fff;
+	padding: 20px;
+	border-radius: 10px;
+}
+.header-signin{
+	text-align: center;
+	font-weight: bold;
+	font-size: 30px;
+	letter-spacing: 2px;
+	margin-top: 50px;
+}
+.check-remember{
+	font-size: 8pt;
+	vertical-align: middle;
+}
+.btn-login{
+	width: 33%;
+	font-size: 24px;
+	padding: 5px;
+}
+input[type=text], input[type=password] {
+  border: none;
+  outline: none;
+  background: transparent;
+  border-bottom: 1px solid gray;
+  cursor: text;
+  height: 45px;
+  width: 100%;
+  padding: 0 10px;
+}
+ input:focus {
+    outline: none 
+}
+.align-left{
+	text-align:left;
+}
+.align-right{
+	text-align:right;
+	
+}
+.align-center{
+	text-align: center;
+}
+.forgot{
+	vertical-align: middle;
+	font-size: 10pt;
+}
+.header-img{
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+.err {
+	margin-top: 10px;
+	color: #b22a25;
+	text-align: center;
+	background-color: #f9bbbb;
+	border-radius: 5px;
+	padding: 10px;
+}
+

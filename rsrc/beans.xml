@@ -1,0 +1,483 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wss="http://jax-ws.dev.java.net/spring/servlet"
+    xmlns:ws="http://jax-ws.dev.java.net/spring/core" xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jee="http://www.springframework.org/schema/jee"
+    xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<bean id="loginAction" class="com.bms.web.action.LoginAction">
+    
+    </bean>
+    
+    <bean id="downloadFile" class="com.bms.web.action.DownloadFileAction">
+   
+    </bean>
+
+    <bean id="addUser" class="com.bms.web.action.AddUserAction">
+    
+    	<property name="userService" ref="hibernateUserService"/>
+   
+    </bean> 
+    
+    <bean id="salesHome" class="com.bms.web.action.SaleDashBoardAction">
+    
+    	<property name="prospectService" ref="hibernateProspectService"/>
+        <property name="proposalService" ref="hibernateProposalService"/>
+        <property name="agreementService" ref="hibernateAgreementService"/>
+        <property name="employeeService" ref="hibernateEmployeeService"/>
+    </bean> 
+    
+    <bean id="adminHome" class="com.bms.web.action.AdminDashBoardAction">
+        <property name="prospectService" ref="hibernateProspectService"/>
+        <property name="proposalService" ref="hibernateProposalService"/>
+        <property name="agreementService" ref="hibernateAgreementService"/>
+        <property name="employeeService" ref="hibernateEmployeeService"/>    
+    	<property name="paymentMilestoneService" ref="hibernatePaymentMilestoneService"/>
+    	<property name="projectService" ref="hibernateProjectService"/>
+    </bean> 
+    
+    
+    
+    
+    <bean id="addEmployee" class="com.bms.web.action.AddEmployeeAction">
+    
+    	<property name="employeeService" ref="hibernateEmployeeService"/>
+    	<property name="userService" ref="hibernateUserService"/>
+   
+    </bean>
+    
+    <bean id="listEmployee" class="com.bms.web.action.ListEmployeeAction">
+    
+    	<property name="employeeService" ref="hibernateEmployeeService"/>
+   
+    </bean>
+    
+    <bean id="viewEmployee" class="com.bms.web.action.ViewEmployeeAction">
+    
+    	<property name="employeeService" ref="hibernateEmployeeService"/>
+   
+    </bean>
+    
+    <bean id="changeEmployeeRole" class="com.bms.web.action.ChangeEmployeeRoleAction">
+    
+    	<property name="employeeService" ref="hibernateEmployeeService"/>
+   
+    </bean>
+    
+    
+    
+    <bean id="addCustomer" class="com.bms.web.action.AddCustomerAction">
+    
+    	<property name="customerService" ref="hibernateCustomerService"/>
+    
+    </bean>
+    
+       
+    <bean id="listCustomer" class="com.bms.web.action.ListCustomerAction">
+    
+    	<property name="customerService" ref="hibernateCustomerService"/>
+    
+    </bean>
+    
+    <bean id="viewCustomer" class="com.bms.web.action.ViewCustomerAction">
+    
+    	<property name="customerService" ref="hibernateCustomerService"/>
+    
+    </bean>
+    
+    <bean id="addProspectPage" class="com.bms.web.action.ToAddProspectPageAction">
+    
+    	<property name="customerService" ref="hibernateCustomerService"/>
+    	<property name="employeeService" ref="hibernateEmployeeService"/>
+    
+    </bean>
+    
+    <bean id="addProspect" class="com.bms.web.action.AddProspectAction">
+    
+    	<property name="prospectService" ref="hibernateProspectService"/>
+    	<property name="customerService" ref="hibernateCustomerService"/>
+    	<property name="requirementService" ref="hibernateRequirementService"/>
+    
+    </bean>
+    
+	<bean id="listProspect" class="com.bms.web.action.ListProspectAction">
+    
+    	<property name="prospectService" ref="hibernateProspectService"/>
+       	<property name="customerService" ref="hibernateCustomerService"/>
+    	<property name="employeeService" ref="hibernateEmployeeService"/>
+   
+   </bean>
+    
+    <bean id="viewProspect" class="com.bms.web.action.ViewProspectAction">
+    
+    	<property name="prospectService" ref="hibernateProspectService"/>
+       	<property name="customerService" ref="hibernateCustomerService"/>
+    	<property name="employeeService" ref="hibernateEmployeeService"/>
+    
+    </bean>
+    
+    <bean id="toEditProspect" class="com.bms.web.action.ToEditProspectPageAction">
+    
+    	<property name="prospectService" ref="hibernateProspectService"/>
+       	<property name="customerService" ref="hibernateCustomerService"/>
+    	<property name="employeeService" ref="hibernateEmployeeService"/>
+    
+    </bean>
+    
+    <bean id="editProspect" class="com.bms.web.action.EditProspectAction">
+    
+    	<property name="prospectService" ref="hibernateProspectService"/>
+    	<property name="customerService" ref="hibernateCustomerService"/>
+    
+    </bean>
+    
+     <bean id="acceptProspect" class="com.bms.web.action.AcceptProspectAction">
+    
+    	<property name="prospectService" ref="hibernateProspectService"/>
+    
+    </bean>
+    
+     <bean id="updateProspectCategory" class="com.bms.web.action.UpdateProspectCategoryAction">
+    
+    	<property name="prospectService" ref="hibernateProspectService"/>
+    
+    </bean>
+    
+    <bean id="updateProspectStatus" class="com.bms.web.action.UpdateProspectStatusAction">
+    
+    	<property name="prospectService" ref="hibernateProspectService"/>
+    
+    </bean>
+    
+    <bean id="evaluateTender" class="com.bms.web.action.EvaluateTenderAction">
+    
+    	<property name="prospectService" ref="hibernateProspectService"/>
+    	<property name="requirementService" ref="hibernateRequirementService"/>
+    
+    </bean>
+    
+      
+    <bean id="addProposal" class="com.bms.web.action.AddProposalAction">
+    
+    	<property name="proposalService" ref="hibernateProposalService"/>
+        <property name="prospectService" ref="hibernateProspectService"/>
+        
+    </bean>
+    
+      
+    
+    <bean id="listProposal" class="com.bms.web.action.ListProposalAction">
+    
+    	<property name="proposalService" ref="hibernateProposalService"/>
+   
+    </bean>
+    
+    <bean id="viewProposal" class="com.bms.web.action.ViewProposalAction">
+    
+    	<property name="proposalService" ref="hibernateProposalService"/>
+    
+    </bean>
+    
+     <bean id="toAddProposalPage" class="com.bms.web.action.ToAddProposalPageAction">
+    
+    	<property name="proposalService" ref="hibernateProposalService"/>
+    	<property name="prospectService" ref="hibernateProspectService"></property>
+   
+    </bean>
+     <bean id="updateProposalStatus" class="com.bms.web.action.UpdateProposalStatusAction">
+    
+    	<property name="proposalService" ref="hibernateProposalService"/>
+    	
+   
+    </bean>
+    
+    <bean id="toEditProposalPage" class="com.bms.web.action.ToEditProposalPageAction">
+    
+    	<property name="proposalService" ref="hibernateProposalService"/>
+    	<property name="prospectService" ref="hibernateProspectService"/>
+    	
+  
+    </bean>
+    
+    <bean id="editProposal" class="com.bms.web.action.EditProposalAction">
+    
+    	
+    	<property name="proposalService" ref="hibernateProposalService"/>
+  
+    </bean>
+    
+    
+    
+    
+    
+       
+       
+       
+    <bean id="addAgreement" class="com.bms.web.action.AddAgreementAction">
+    
+    	<property name="agreementService" ref="hibernateAgreementService"/>
+    	
+    </bean>
+    
+    <bean id="listAgreement" class="com.bms.web.action.ListAgreementAction">
+    
+    	<property name="agreementService" ref="hibernateAgreementService"/>
+   
+   	    <property name="prospectService" ref="hibernateProspectService"/>
+    
+    </bean>
+    
+    
+    <bean id="viewAgreement" class="com.bms.web.action.ViewAgreementAction">
+    
+    	<property name="agreementService" ref="hibernateAgreementService"/>
+   
+   	    <property name="prospectService" ref="hibernateProspectService"/>
+    
+    </bean>
+    
+    
+    <bean id="confirmAgreement" class="com.bms.web.action.ConfirmAgreementAction">
+    
+    <property name="agreementService" ref="hibernateAgreementService"/>
+   
+    </bean>
+    
+    
+    
+     <bean id="toAddAgreementPage" class="com.bms.web.action.ToAddAgreementPageAction">
+    
+    	<property name="prospectService" ref="hibernateProspectService"></property>
+   
+    </bean>
+    
+      
+    <bean id="addPayment" class="com.bms.web.action.AddPaymentAction">
+    
+     <property name="agreementService" ref="hibernateAgreementService"/>
+      <property name="paymentService" ref="hibernatePaymentService"/>
+   
+    </bean>
+    
+     <bean id="toAddMilestonePage" class="com.bms.web.action.ToAddMilestonePageAction">
+    
+    	<property name="paymentService" ref="hibernatePaymentService"/>
+    	<property name="projectService" ref="hibernateProjectService"></property>
+   
+    </bean>
+    
+    
+    
+   <bean id="addMilestone" class="com.bms.web.action.AddMilestoneAction">
+    
+    <property name="paymentMilestoneService" ref="hibernatePaymentMilestoneService"/>
+    
+    <property name="invoiceService" ref="hibernateInvoiceService"/>
+    
+   </bean>
+  
+      
+    <bean id="listMilestone" class="com.bms.web.action.ListMilestoneAction">
+    
+    <property name="paymentMilestoneService" ref="hibernatePaymentMilestoneService"/>
+    
+     <property name="paymentService" ref="hibernatePaymentService"/>
+     
+     <property name="projectService" ref="hibernateProjectService"/>
+   
+   </bean> 
+   
+   <bean id="generateInvoice" class="com.bms.web.action.GenerateInvoiceAction">
+   
+      <property name="paymentMilestoneService" ref="hibernatePaymentMilestoneService"/>
+   
+    <property name="paymentService" ref="hibernatePaymentService"/>
+   
+   <property name="agreementService" ref="hibernateAgreementService"/>
+   
+   <property name="customerService" ref="hibernateCustomerService"/>
+    
+   <property name="prospectService" ref="hibernateProspectService"/>
+   
+   <property name="invoiceService" ref="hibernateInvoiceService"/>
+    
+   </bean>
+   
+   
+    
+    <bean id="addProject" class="com.bms.web.action.AddProjectAction">
+    
+    	<property name="projectService" ref="hibernateProjectService"/>
+    	
+    	<property name="employeeService" ref="hibernateEmployeeService"/>
+    	
+    	<property name="prospectService" ref="hibernateProspectService"/>
+    	
+    	<property name="agreementService" ref="hibernateAgreementService"/>
+    
+    
+    </bean>
+    
+    
+    <bean id="listProject" class="com.bms.web.action.ListProjectAction">
+    
+    	<property name="projectService" ref="hibernateProjectService"/>
+    
+    </bean>
+    
+          <bean id="toAddProject" class="com.bms.web.action.ToAddProjectPageAction">
+    
+    	<property name="projectService" ref="hibernateProjectService"/>
+    	
+    	<property name="employeeService" ref="hibernateEmployeeService"/>
+    	
+    	<property name="prospectService" ref="hibernateProspectService"/>
+    	
+    	<property name="agreementService" ref="hibernateAgreementService"/>
+    
+    </bean>
+    
+    
+    <bean id="viewProject" class="com.bms.web.action.ViewProjectAction">
+    
+    	<property name="projectService" ref="hibernateProjectService"/>
+    
+    </bean>
+    
+    
+     <bean id="generateReport" class="com.bms.web.action.GenerateReportAction">
+    
+    	<property name="prospectService" ref="hibernateProspectService"/>
+    	<property name="proposalService" ref="hibernateProposalService"/>
+    	<property name="agreementService" ref="hibernateAgreementService"/>
+    
+    </bean>
+    
+ 
+    <bean id="hibernateUserService" class="com.bms.service.UserServiceImpl"> 
+       
+   		 <property name="template" ref="template"/>
+   		 	  
+    </bean>
+    
+    <bean id="hibernateEmployeeService" class="com.bms.service.EmployeeServiceImpl"> 
+       
+   		 <property name="template" ref="template"/>
+   		 	  
+    </bean>
+    
+    <bean id="hibernateCustomerService" class="com.bms.service.CustomerServiceImpl"> 
+       
+   		 <property name="template" ref="template"/>
+   		 	  
+    </bean>
+    
+    <bean id="hibernateProspectService" class="com.bms.service.ProspectServiceImpl"> 
+       
+   		 <property name="template" ref="template"/>
+   		 	  
+    </bean>
+     
+    <bean id="hibernateProposalService" class="com.bms.service.ProposalServiceImpl"> 
+       
+   		 <property name="template" ref="template"/>
+   		 	  
+    </bean>
+    
+    <bean id="hibernateAgreementService" class="com.bms.service.AgreementServiceImpl"> 
+       
+   		 <property name="template" ref="template"/>
+   		 	  
+    </bean>
+    
+      
+    <bean id="hibernatePaymentService" class="com.bms.service.PaymentServiceImpl"> 
+       
+   		 <property name="template" ref="template"/>
+   		 	  
+    </bean>
+       
+       
+    <bean id="hibernatePaymentMilestoneService" class="com.bms.service.PaymentMilestoneServiceImpl"> 
+       
+   		 <property name="template" ref="template"/>
+   		 	  
+    </bean>
+    
+       
+    <bean id="hibernateInvoiceService" class="com.bms.service.InvoiceServiceImpl"> 
+       
+   		 <property name="template" ref="template"/>
+   		 	  
+    </bean>
+    
+    <bean id="hibernateProjectService" class="com.bms.service.ProjectServiceImpl"> 
+       
+   		 <property name="template" ref="template"/>
+   		 	  
+    </bean>
+    
+    <bean id="hibernateRequirementService" class="com.bms.service.RequirementServiceImpl">
+    
+    	<property name="template" ref="template"></property>
+    
+    </bean>
+       
+       
+       
+	<bean id="template" class="org.springframework.orm.hibernate3.HibernateTemplate">  
+    
+    	<property name="sessionFactory" ref="mysessionFactory"></property>
+    	  	
+    </bean> 
+    
+    
+     
+    <bean id="mysessionFactory"  class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+    
+        <property name="dataSource" ref="dataSource"></property>  
+          
+        <property name="mappingResources">  
+       	 	<list>  
+        		<value>user.hbm.xml</value>  
+        		<value>employee.hbm.xml</value>
+        		<value>customer.hbm.xml</value>
+        		<value>project.hbm.xml</value>
+        		<value>prospect.hbm.xml</value>
+        		<value>proposal.hbm.xml</value>
+        		<value>agreement.hbm.xml</value>
+        		<value>payment.hbm.xml</value>
+        		<value>paymentmilestone.hbm.xml</value>
+                <value>userroles.hbm.xml</value>
+                <value>requirement.hbm.xml</value>
+                <value>invoice.hbm.xml</value>
+       		</list>
+        </property>  
+        <property name="hibernateProperties">  
+            <props>  
+                <prop key="hibernate.dialect">org.hibernate.dialect.Oracle9Dialect</prop>  
+                <prop key="hibernate.hbm2ddl.auto">update</prop>  
+                <prop key="hibernate.show_sql">true</prop>  
+            </props>  
+        </property>  
+    </bean>  
+   
+   
+   
+   <bean id = "dataSource" class = "org.apache.commons.dbcp2.BasicDataSource">
+   
+      <property name = "driverClassName" value = "com.mysql.jdbc.Driver"/>
+      <property name = "url" value="jdbc:mysql://127.0.0.1/businessmanagementsystem"/>
+      <property name = "username" value="bms"/>
+      <property name = "password" value="bms@password" /> 
+      
+   </bean>
+</beans>

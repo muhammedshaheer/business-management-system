@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">  
+  
+ <hibernate-mapping>  
+  <class name="com.bms.domain.Prospect" table="prospect">  
+    <id name="prospectID">  
+     <generator class="increment"></generator>
+    </id>
+    <property name="prospectName"/>
+    <property name="dateOfIdentification"/>  
+	<property name="specification"/>
+	<property name="prospectType"/>
+	<property name="sector"/>
+	<property name="customerID"/>   
+	<property name="source"/>
+	<property name="responseDeadline"/>
+	<property name="employeeInChargeID"/>    
+	<property name="budget"/>
+	<property name="status"/>
+	<property name="category"/>
+	<property name="linkToFile"/> 
+	<property name="proposalID"/>
+  </class>  
+            
+ </hibernate-mapping>  
+ 
